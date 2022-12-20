@@ -8,14 +8,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private DialogueUI dialogueUI;
+    [SerializeField] private Animator animator;
+
     private Vector2 moveDirection;
     public float moveSpeed;
 
-    // these are for shooting
-    [SerializeField] private Transform aimGunEndPointTransform;
-    [SerializeField]private Transform firePoint;
-    [SerializeField] private GameObject bulletPrefab;
-    
+    private float horizontalMove;
 
     public DialogueUI DialogueUI => dialogueUI;
 
@@ -33,14 +31,10 @@ public class PlayerMovement : MonoBehaviour
     {
         ProcessInputs();
 
-        // input for shooting
-        if (Input.GetMouseButtonDown(0))
-        {
-            ShootBullet();
-        }
+        // animation stuff
+        horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-        // set the rotation based on mosuepos
-        firePoint.transform.rotation = Quaternion.Euler(0, 0, Input.mousePosition.z);
     }
 
     // for physics calculations 
@@ -56,6 +50,18 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         moveDirection = new Vector2(moveX, moveY).normalized;
+
+        // flipping sprite cus the sheet only had one side
+        if (moveX > 0)
+        {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        
+        if (moveX < 0)
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     // move
@@ -63,11 +69,5 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-    }
-
-    // shooty shooty pow pow bang
-    private void ShootBullet()
-    {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }

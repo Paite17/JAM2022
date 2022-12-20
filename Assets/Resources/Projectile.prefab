@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2842003146508385749}
   - component: {fileID: 2130630340103780863}
   - component: {fileID: 738949467661138679}
+  - component: {fileID: 6412984204570792800}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7103369911453320328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.0629, y: 0.8618, z: 0}
-  m_LocalScale: {x: 0.71343935, y: 0.2636, z: 1}
+  m_LocalScale: {x: 0.2636, y: 0.7134393, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,7 +94,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7103369911453320328}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -102,7 +103,20 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &6412984204570792800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103369911453320328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0505469fd150fda43957c1dc388d6b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 5
