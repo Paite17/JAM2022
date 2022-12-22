@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     public IInteractable Interactable { get; set; }
 
-    
+
 
     private void Start()
     {
@@ -71,13 +72,12 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        
+
         if (moveX < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
     }
-
     // move
     // my comments are so insightful
     private void Move()
