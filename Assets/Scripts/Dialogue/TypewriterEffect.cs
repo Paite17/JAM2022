@@ -7,7 +7,7 @@ public class TypewriterEffect : MonoBehaviour
 {
 
     [SerializeField]private float typeWriterSpeed = 50f;
-    AudioSource charVoice;
+    AudioSource characterVoice;
     public bool isRunning { get; private set; }
 
     // punctuation list for pausing text
@@ -19,9 +19,9 @@ public class TypewriterEffect : MonoBehaviour
 
     private Coroutine typingCoroutine;
 
-    public void Run(string textToType, TMP_Text textLabel)
+    public void Run(string textToType, TMP_Text textLabel, AudioClip charVoice)
     {
-        typingCoroutine = StartCoroutine(TypeText(textToType, textLabel));
+        typingCoroutine = StartCoroutine(TypeText(textToType, textLabel, charVoice));
     }
 
     public void Stop()
@@ -29,12 +29,12 @@ public class TypewriterEffect : MonoBehaviour
         StopCoroutine(typingCoroutine);
         isRunning = false;
     }
-    private IEnumerator TypeText(string textToType, TMP_Text textLabel)
+    private IEnumerator TypeText(string textToType, TMP_Text textLabel, AudioClip charVoice)
     {
         isRunning = true;
         float t = 0;
         int charIndex = 0;
-        charVoice = GetComponent<AudioSource>();
+        characterVoice = GetComponent<AudioSource>();
 
         // types text on screen
         while (charIndex < textToType.Length)
@@ -50,7 +50,8 @@ public class TypewriterEffect : MonoBehaviour
                 bool isLast = i >= textToType.Length - 1;
 
                 // should hopefully make a sound as text displays
-                charVoice.Play();
+                characterVoice.clip = charVoice;
+                characterVoice.Play();
 
                 textLabel.text = textToType.Substring(0, i + 1);
 

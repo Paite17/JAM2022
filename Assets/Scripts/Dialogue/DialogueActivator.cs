@@ -7,22 +7,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogObject dialogueObject;
     [SerializeField] private PlayerMovement player;
-    private Scene currentScene;
-    private string sceneName;
 
-    // trying out to see if i can get the dialogue to appear on load of the prologue
-    // i think it works which is pretty cool tbh
-    private void Start()
-    {
-        currentScene = SceneManager.GetActiveScene();
-        sceneName = currentScene.name;
-        player.GetComponent<PlayerMovement>();
-
-        if (sceneName == "PrologueScene")
-        {
-            Interact(player);
-        }
-    }
+    private DialogueEvents[] dialogueEvents;
 
     public void UpdateDialogueObject(DialogObject dialogueObject)
     {
@@ -35,6 +21,11 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         {
             player.Interactable = this;
         }
+    }
+
+    public void AddDialogueEvents(DialogueEvents[] dialogueEvents)
+    {
+        this.dialogueEvents = dialogueEvents;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -58,6 +49,17 @@ public class DialogueActivator : MonoBehaviour, IInteractable
                 break;
             }
         }
+
+        // BREAKS THE SYSTEM DONT UNCOMMENT FOR NOW
+        /*for (int i = 0; i > dialogueEvents.Length; i++)
+        {
+            // check if event exists
+            if (dialogueEvents != null)
+            {
+                dialogueEvents[i].OnPreviousButtonPress?.Invoke();
+            }
+        } */
+
 
         player.DialogueUI.ShowDialogue(dialogueObject);
     }

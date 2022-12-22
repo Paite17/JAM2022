@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
+    [SerializeField] private Image character;
 
+    
 
     public bool isOpen { get; private set; }
 
     // only realised now that i mispelt responseHandler as resonseHandler and right now i can't be bothered to fix it
     // should probably fix it at some point in the future though, it might get confusing
     private ResonseHandler responseHandler;
+    private DialogueActivator dialogueActivator;
     private TypewriterEffect typewriterEffect;
 
     // Start is called before the first frame update
@@ -31,9 +35,15 @@ public class DialogueUI : MonoBehaviour
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
+
     public void AddResponseEvents(ResponseEvent[] responseEvents)
     {
         responseHandler.AddResponseEvents(responseEvents);
+    }
+
+    public void AddDialogueEvents(DialogueEvents[] dialogueEvents)
+    {
+        dialogueActivator.AddDialogueEvents(dialogueEvents);
     }
 
     private IEnumerator StepThroughDialogue(DialogObject dialogueObject)
@@ -42,9 +52,15 @@ public class DialogueUI : MonoBehaviour
         {
             string dialogue = dialogueObject.Dialogue[i];
 
-            yield return RunTypingEffect(dialogue);
+            AudioClip voice = dialogueObject.CharVoice[i];
+
+            Sprite charPortrait = dialogueObject.CharPortrait[i];
+
+            yield return RunTypingEffect(dialogue, voice);
 
             textLabel.text = dialogue;
+
+            character.sprite = charPortrait;
 
             if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses)
             {
@@ -52,7 +68,7 @@ public class DialogueUI : MonoBehaviour
             }
 
             yield return null;
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
         }
 
         if (dialogueObject.HasResponses)
@@ -67,15 +83,15 @@ public class DialogueUI : MonoBehaviour
         
     }
 
-    private IEnumerator RunTypingEffect(string dialogue)
+    private IEnumerator RunTypingEffect(string dialogue, AudioClip voice)
     {
-        typewriterEffect.Run(dialogue, textLabel);
+        typewriterEffect.Run(dialogue, textLabel, voice);
 
         while (typewriterEffect.isRunning)
         {
             yield return null;
 
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 typewriterEffect.Stop();
             }

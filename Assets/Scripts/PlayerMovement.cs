@@ -29,12 +29,26 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (dialogueUI.isOpen)
+        {
+            return;
+        }
+
         ProcessInputs();
 
         // animation stuff
         horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("E pressed");
+            if (Interactable != null)
+            {
+                Debug.Log("Interactable != null!");
+                Interactable.Interact(this);
+            }
+        }
     }
 
     // for physics calculations 
@@ -54,13 +68,13 @@ public class PlayerMovement : MonoBehaviour
         // flipping sprite cus the sheet only had one side
         if (moveX > 0)
         {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         
         if (moveX < 0)
         {
-            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
