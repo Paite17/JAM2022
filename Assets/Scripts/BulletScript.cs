@@ -8,8 +8,12 @@ public class BulletScript : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
+    public int baseDmg;
+    public int lowerDmg;
+    public int upperDmg;
+    private float timer;
 
-    // TODO: Collisions
+   
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +35,47 @@ public class BulletScript : MonoBehaviour
         // set rotation of object based on  mouse dir
         float rotate = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotate + 90);
+
+        // prevent collisions with the player object
+        GameObject playerObj = GameObject.Find("Player");
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerObj.GetComponent<Collider2D>());
+    }
+
+    // collision
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // fix something quirky
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Enemy")
+        {
+            Destroy(gameObject);
+        }
+
+        // dry fix
+        if (collision.gameObject.tag == "Tilemap")
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // simulate some sort of knockback
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+    private void Update()
+    {
+        // the fact i had to do this is stupid but tilemap collisions don't like the projectile
+        timer += Time.deltaTime;
+
+        if (timer > 5)
+        {
+            Destroy(gameObject);
+        }
     }
 }

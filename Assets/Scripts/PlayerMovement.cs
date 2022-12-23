@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.AI;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,21 +9,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject bullet;
+
 
     private Vector2 moveDirection;
     public float moveSpeed;
 
-    private float horizontalMove;
+    private float moving;
 
     public DialogueUI DialogueUI => dialogueUI;
 
     public IInteractable Interactable { get; set; }
 
 
+    
 
     private void Start()
     {
-
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), bullet.GetComponent<Collider2D>());
     }
 
     // Update is called once per frame
@@ -38,8 +42,10 @@ public class PlayerMovement : MonoBehaviour
         ProcessInputs();
 
         // animation stuff
-        horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        animator.SetFloat("Speed", moving);
+        
+
+
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -72,16 +78,34 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
-
+        
         if (moveX < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
+
+        // dumb ish solution to fix the animation problem
+        // it does work tho
+        if (moveX != 0)
+        {
+            moving = 1;
+        }
+        else if (moveX == 0 && moveY == 0)
+        {
+            moving = 0;
+        }
+
+        if (moveY != 0)
+        {
+            moving = 1;
+        }
     }
+
     // move
     // my comments are so insightful
     private void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
+
 }
