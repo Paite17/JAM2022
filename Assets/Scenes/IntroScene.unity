@@ -229,8 +229,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 56294567}
-  selectedCommands:
-  - {fileID: 56294579}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -271,9 +270,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 177
+    x: 175
     y: 90
-    width: 60
+    width: 77
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -550,7 +549,7 @@ MonoBehaviour:
   sceneNameOLD: 
 --- !u!114 &56294579
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

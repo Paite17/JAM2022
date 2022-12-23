@@ -127,6 +127,8 @@ MonoBehaviour:
   animator: {fileID: 5320407499074691163}
   enemy: {fileID: 9188403657460702136, guid: e18f71fe876792d4da6a47d34ad3fa59, type: 3}
   bullet: {fileID: 7103369911453320328, guid: e7b42210e3357a248aee170cf4b67c8f, type: 3}
+  spawners: []
+  playerHP: 200
   hasPasscode: 0
   moveSpeed: 7
 --- !u!95 &5320407499074691163

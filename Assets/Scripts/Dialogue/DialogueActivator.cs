@@ -8,8 +8,22 @@ public class DialogueActivator : MonoBehaviour, IInteractable
     [SerializeField] private DialogObject dialogueObject;
     [SerializeField] private PlayerMovement player;
 
+    private Scene currentScene;
+    private string sceneName;
+
     private DialogueEvents[] dialogueEvents;
 
+
+    private void Start()
+    {
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+
+        if (sceneName == "BossRoom")
+        {
+            Interact(player);
+        }
+    }
     public void UpdateDialogueObject(DialogObject dialogueObject)
     {
         this.dialogueObject = dialogueObject;
