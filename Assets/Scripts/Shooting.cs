@@ -19,6 +19,7 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
     }
 
@@ -56,7 +57,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canFire)
         {
             // so that you can't shoot everyone too early on
-            if (sceneName == "SampleScene")
+            if (sceneName == "SampleScene" || sceneName == "BossRoom")
             {
                 Instantiate(bullet, bulletTransform.position, Quaternion.identity);
 

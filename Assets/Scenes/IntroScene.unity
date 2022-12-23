@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 56294574}
   - component: {fileID: 56294573}
   - component: {fileID: 56294578}
+  - component: {fileID: 56294579}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -229,7 +230,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 56294567}
   selectedCommands:
-  - {fileID: 56294578}
+  - {fileID: 56294579}
   variables: []
   description: 
   stepPause: 0
@@ -281,6 +282,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 56294566}
   commandList:
+  - {fileID: 56294579}
   - {fileID: 56294570}
   - {fileID: 56294569}
   - {fileID: 56294572}
@@ -546,6 +548,24 @@ MonoBehaviour:
     stringVal: AlleywayLevel
   loadingImage: {fileID: 0}
   sceneNameOLD: 
+--- !u!114 &56294579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56294564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1902400ccc99b45d69ad01cb86b57d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 11
+  indentLevel: 0
+  musicClip: {fileID: 8300000, guid: 0dae02cea51213441b7765be81a5851c, type: 3}
+  atTime: 0
+  loop: 1
+  fadeDuration: 0.36
 --- !u!1 &203396434
 GameObject:
   m_ObjectHideFlags: 0

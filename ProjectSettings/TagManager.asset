@@ -8,6 +8,9 @@ TagManager:
   - Projectile
   - Tilemap
   - GuardedEntrance
+  - Hat
+  - Level1Door
+  - MrsCDialougeTrigger
   layers:
   - Default
   - TransparentFX

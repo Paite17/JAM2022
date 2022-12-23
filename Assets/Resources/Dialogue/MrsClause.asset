@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4fcc517136536499a2a6775cdd2912, type: 3}
+  m_Name: MrsClause
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Mrs Claus! it was you that taugtt the elves how to steal my magic? Why would
+    you betray me like this?
+  - 'You''re selfish Santa! Keeping all of that magic for yourself, never sharing! '
+  - I want to help the kids at Christmas too! But no, it's all...
+  - '"sit around and look pretty my sweet!" and '
+  - '"who else will take care of me when I get back from work?"'
+  - It's been centuries of this and I just can't take it anymore! I had to do something!
+  - Mrs. Claus, please, we can talk about this, we've been together for so long you
+    could have spoken to me!
+  - I will sit down and talk with you Santa, if you can asnwer me one simple question...
+  - What is my first name?
+  - I... I don't remember...
+  - It's Gertrude you selfish pig!
+  responses: []
+  charName:
+  - Santa
+  - Mrs. Claus
+  - Mrs. Claus
+  - Mrs. Claus
+  - Mrs. Claus
+  - Mrs. Claus
+  - Santa
+  - Mrs. Claus
+  - Mrs. Claus
+  - Santa
+  - Mrs. Claus
+  charPortrait:
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: f1a8da88d65bd0d42a8ba9741e4ad251, type: 3}
+  - {fileID: 21300000, guid: f1a8da88d65bd0d42a8ba9741e4ad251, type: 3}
+  - {fileID: 21300000, guid: f1a8da88d65bd0d42a8ba9741e4ad251, type: 3}
+  - {fileID: 21300000, guid: f1a8da88d65bd0d42a8ba9741e4ad251, type: 3}
+  - {fileID: 21300000, guid: f1a8da88d65bd0d42a8ba9741e4ad251, type: 3}
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: f1a8da88d65bd0d42a8ba9741e4ad251, type: 3}
+  - {fileID: 21300000, guid: f1a8da88d65bd0d42a8ba9741e4ad251, type: 3}
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: f1a8da88d65bd0d42a8ba9741e4ad251, type: 3}
+  charVoice:
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: 92f7d0c9f0b0ade458deea33d6e28060, type: 3}
+  - {fileID: 8300000, guid: 92f7d0c9f0b0ade458deea33d6e28060, type: 3}
+  - {fileID: 8300000, guid: 92f7d0c9f0b0ade458deea33d6e28060, type: 3}
+  - {fileID: 8300000, guid: 92f7d0c9f0b0ade458deea33d6e28060, type: 3}
+  - {fileID: 8300000, guid: 92f7d0c9f0b0ade458deea33d6e28060, type: 3}
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: 92f7d0c9f0b0ade458deea33d6e28060, type: 3}
+  - {fileID: 8300000, guid: 92f7d0c9f0b0ade458deea33d6e28060, type: 3}
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: 92f7d0c9f0b0ade458deea33d6e28060, type: 3}

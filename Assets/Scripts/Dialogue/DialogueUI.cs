@@ -111,6 +111,15 @@ public class DialogueUI : MonoBehaviour
                     quirky.RemoveWall();
                 }
             }
+            else if (dialogueObject.Dialogue.Length == 11)
+            {
+                if (dialogueObject.Dialogue[10] == "It's Gertrude you selfish pig!")
+                {
+                    GameObject spawnerObj = GameObject.Find("SpawnMrsC");
+                    MrsCSpawn spawner = spawnerObj.GetComponent<MrsCSpawn>();
+                    spawner.Spawn();
+                }
+            }
 
            CloseDialogueBox();
         }

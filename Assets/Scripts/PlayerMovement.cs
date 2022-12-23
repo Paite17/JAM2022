@@ -11,8 +11,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private EntitySpawn[] spawners;
 
+    public int playerHP;
     public bool hasPasscode;
+    private bool canMoveOn;
     private Vector2 moveDirection;
     public float moveSpeed;
 
@@ -56,6 +59,22 @@ public class PlayerMovement : MonoBehaviour
                 Interactable.Interact(this);
             }
         }
+
+        for (int i = 0; i > spawners.Length; i++)
+        {
+            if (spawners[i].round >= spawners[i].maxRounds)
+            {
+                canMoveOn = true;
+            }
+        }
+
+        // death
+        if (playerHP < 1)
+        {
+            // gameover
+            SceneManager.LoadScene("GameOver");
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,6 +82,41 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "GuardedEntrance")
         {
             SceneManager.LoadScene("SampleScene");
+        }
+
+        if (collision.gameObject.tag == "Hat")
+        {
+            /*GameObject spawnerObj = GameObject.Find("EntitySpawner");
+            EntitySpawn spawn = spawnerObj.GetComponent<EntitySpawn>();
+            spawn.startTrigger = true;
+            collision.gameObject.SetActive(false); */
+
+            for (int i = 0; i < spawners.Length; i++)
+            {
+                spawners[i].startTrigger = true;
+            }
+        }
+
+        if (collision.gameObject.tag == "Level1Door")
+        {
+            if (canMoveOn == true)
+            {
+                SceneManager.LoadScene("BossRoom");
+            }
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            // take damage
+            int random = Random.Range(3, 10);
+
+            playerHP -= random;
+        }
+
+        if (collision.gameObject.tag == "MrsCDialougeTrigger")
+        {
+            Interactable.Interact(this);
+            collision.gameObject.SetActive(false);
         }
     }
 

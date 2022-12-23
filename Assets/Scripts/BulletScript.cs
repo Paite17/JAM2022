@@ -45,26 +45,16 @@ public class BulletScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // fix something quirky
-        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Enemy")
+        if (collision.gameObject.tag != "Player")
         {
             Destroy(gameObject);
         }
 
-        // dry fix
-        if (collision.gameObject.tag == "Tilemap")
+        /*if (collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
-        }
-        
-    }
+        } */
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // simulate some sort of knockback
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
     }
 
 

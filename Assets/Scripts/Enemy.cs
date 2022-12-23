@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyType
+{
+    ENEMY,
+    BOSS
+}
+
 public class Enemy : MonoBehaviour
 {
     // keeep this public or AI will die!!!
@@ -10,6 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private Vector2 movement;
     public int enemyHP;
+    public EnemyType enemyType;
 
     
     // Start is called before the first frame update
@@ -82,6 +89,11 @@ public class Enemy : MonoBehaviour
     {
         // TODO: funny death sequence with sfx
         Destroy(gameObject);
+
+        if (enemyType == EnemyType.BOSS)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Ending");
+        }
     }
 
     // take damage
