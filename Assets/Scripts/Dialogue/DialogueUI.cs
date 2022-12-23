@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private Image character;
+ 
 
     
 
@@ -23,6 +25,7 @@ public class DialogueUI : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+
         typewriterEffect = GetComponent<TypewriterEffect>();
         responseHandler = GetComponent<ResonseHandler>();
         CloseDialogueBox();

@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public int playerHP;
     public bool hasPasscode;
-    private bool canMoveOn;
+    public bool canMoveOn = true;
     private Vector2 moveDirection;
     public float moveSpeed;
 
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>());
+        //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>());
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), bullet.GetComponent<Collider2D>());
     }
 
@@ -60,13 +60,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        for (int i = 0; i > spawners.Length; i++)
-        {
-            if (spawners[i].round >= spawners[i].maxRounds)
-            {
-                canMoveOn = true;
-            }
-        }
 
         // death
         if (playerHP < 1)
