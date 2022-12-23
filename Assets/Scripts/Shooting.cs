@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shooting : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class Shooting : MonoBehaviour
     public bool canFire;
     private float timer;
     public float timeBetweenShot;
+    private Scene currentScene;
+    private string sceneName;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        sceneName = currentScene.name;
     }
 
     // might put these in functions later -lewis
@@ -52,10 +55,14 @@ public class Shooting : MonoBehaviour
         // shooting input
         if (Input.GetMouseButtonDown(0) && canFire)
         {
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-            
-            // prevent spam
-            canFire = false;
+            // so that you can't shoot everyone too early on
+            if (sceneName == "SampleScene")
+            {
+                Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+
+                // prevent spam
+                canFire = false;
+            }
         }
     }
 }

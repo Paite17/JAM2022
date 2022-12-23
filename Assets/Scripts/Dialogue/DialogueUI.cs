@@ -50,6 +50,8 @@ public class DialogueUI : MonoBehaviour
     { 
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
+            
+
             string dialogue = dialogueObject.Dialogue[i];
 
             AudioClip voice = dialogueObject.CharVoice[i];
@@ -60,7 +62,15 @@ public class DialogueUI : MonoBehaviour
 
             textLabel.text = dialogue;
 
-            character.sprite = charPortrait;
+            
+            if (dialogueObject.CharPortrait != null)
+            {
+                character.sprite = charPortrait;
+            }
+            else
+            {
+                character.gameObject.SetActive(false);
+            }
 
             if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses)
             {
@@ -77,6 +87,31 @@ public class DialogueUI : MonoBehaviour
         }
         else
         {
+            // it keeps getting worse
+            if (dialogueObject.Dialogue.Length == 10)
+            {
+                // scripted thingie test
+                if (dialogueObject.Dialogue[9] == "NO REASON")
+                {
+                    Debug.Log("WHOA its the funny dialogue!!!!");
+                    GameObject crackElfObj = GameObject.Find("CrackElf");
+                    ElfFunny crack = crackElfObj.GetComponent<ElfFunny>();
+
+                    crack.RunIntoWall();
+                }
+            }
+            else if (dialogueObject.Dialogue.Length == 5)
+            {
+                if (dialogueObject.Dialogue[4] == "Correctamundo! Head right on in!")
+                {
+                    Debug.Log("Removing the wall...");
+                    GameObject wallObj = GameObject.Find("Quirky");
+                    Quirky quirky = wallObj.GetComponent<Quirky>();
+
+                    quirky.RemoveWall();
+                }
+            }
+
            CloseDialogueBox();
         }
 

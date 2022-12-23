@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4fcc517136536499a2a6775cdd2912, type: 3}
+  m_Name: Elf_interaction
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Excuse me young elf, do you work for that group of elves over there?
+  - ...
+  - (It is nodding rather... violently.)
+  - Would you mind helping me get a disguise inside? If you do, I'll let you take
+    the rest of the year off!
+  - ..!
+  - (This elf didn't even hesitate to just give me his clothes...)
+  - (...Is he going to strip naked? Oh wait, I think he's done now.)
+  - (Disguising)
+  - ...Why does it say passcode on your forehead
+  - NO REASON
+  responses: []
+  charName:
+  - Santa
+  - Elf
+  - Santa
+  - Santa
+  - Santa
+  - Santa
+  - Santa
+  - Santa
+  - Santa
+  - Elf
+  charPortrait:
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: 6c7dedd9895846949a4d1e5e0719ba40, type: 3}
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: 8895e1a1c315bd84587520aaffbb349b, type: 3}
+  - {fileID: 21300000, guid: 41defef2c4990914b927c76ded611b8d, type: 3}
+  - {fileID: 21300000, guid: 6c7dedd9895846949a4d1e5e0719ba40, type: 3}
+  charVoice:
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: df2df9b2d5942254db422619320fa492, type: 3}
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: accfe3474d246ef43a51f3354bbb72ad, type: 3}
+  - {fileID: 8300000, guid: 54d3aced71bdd984d993944c9e232684, type: 3}
+  - {fileID: 8300000, guid: df2df9b2d5942254db422619320fa492, type: 3}

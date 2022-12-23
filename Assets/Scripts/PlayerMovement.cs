@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject bullet;
 
-
+    public bool hasPasscode;
     private Vector2 moveDirection;
     public float moveSpeed;
 
@@ -55,6 +55,14 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Interactable != null!");
                 Interactable.Interact(this);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "GuardedEntrance")
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 
