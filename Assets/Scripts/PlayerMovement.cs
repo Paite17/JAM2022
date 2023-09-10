@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>());
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), bullet.GetComponent<Collider2D>());
     }
 
@@ -92,10 +92,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Level1Door")
         {
-            if (canMoveOn == true)
-            {
-                SceneManager.LoadScene("BossRoom");
-            }
+
+           SceneManager.LoadScene("BossRoom");
+            
         }
 
         if (collision.gameObject.tag == "Enemy")
@@ -161,6 +160,11 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+    }
+
+    public void Testing()
+    {
+        Debug.Log("lmao it works now??!?!?!");
     }
 
 }

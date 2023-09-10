@@ -10,4 +10,5 @@ public class DialogueEvents
     [SerializeField] private UnityEvent onPreviousButtonPress;
 
     public UnityEvent OnPreviousButtonPress => onPreviousButtonPress;
+
 }

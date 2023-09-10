@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     {
         // prevent collisions with the player object
         GameObject playerObj = GameObject.Find("Player");
-        //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerObj.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerObj.GetComponent<Collider2D>());
         player = playerObj;
     }
 

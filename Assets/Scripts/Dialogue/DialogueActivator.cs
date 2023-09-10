@@ -70,6 +70,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
             // check if event exists
             if (dialogueEvents != null)
             {
+                player.DialogueUI.AddDialogueEvents(dialogueEvents.Events);
                 dialogueEvents[i].OnPreviousButtonPress?.Invoke();
             }
         } */
